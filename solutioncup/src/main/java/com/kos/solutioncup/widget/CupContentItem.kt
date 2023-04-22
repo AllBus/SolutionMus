@@ -6,12 +6,11 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.view.updatePadding
 import com.kos.solutioncup.R
 import com.kos.solutioncup.utils.*
 
-class CupCell @JvmOverloads constructor(
+class CupContentItem @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs)
 {
@@ -46,18 +45,17 @@ class CupCell @JvmOverloads constructor(
         orientation = LinearLayout.HORIZONTAL
         this.addView(image)
         this.addView(textLayout)
-        updatePadding(
-            px(ResourceManager.CELL_PADDING),
-            px(ResourceManager.CELL_PADDING),
-            px(ResourceManager.CELL_PADDING),
-            px(ResourceManager.CELL_PADDING),
+        margin(
+            ResourceManager.CELL_PADDING,
+            ResourceManager.CELL_VERTICAL_PADDING,
+            ResourceManager.CELL_PADDING,
+            ResourceManager.CELL_VERTICAL_PADDING,
         )
-        setStyle(CupStyle.NORMAL)
 
         title.matchParent_WrapContent()
         description.matchParent_WrapContent()
         image.size(ResourceManager.IMAGE_SIZE)
-        setStyle(CupStyle.NORMAL)
+
     }
 
     fun setTitle(text: CharSequence){
@@ -72,25 +70,59 @@ class CupCell @JvmOverloads constructor(
         image.setImageDrawable(drawable)
     }
 
-    fun hasCloseButton(enable: Boolean){
-
+    fun setData(data: CupContentData){
+        setTitle(data.title)
+        setDescription(data.description)
+        setImage(data.image)
     }
 
-    fun setStyle(style: CupStyle){
-        when (style){
-            CupStyle.NORMAL-> styleNormal()
-            CupStyle.FLAT -> styleFlat()
+    fun setOrientation(orientation: ContentOrientation){
+        when (orientation){
+            ContentOrientation.VERTICAL -> styleVertical()
+            ContentOrientation.HORIZONTAL -> styleHorizontal()
         }
+
+        updateSize(orientation)
     }
 
-    private fun styleFlat() {
+    private fun updateSize(orientation: ContentOrientation){
+
+        when (orientation){
+            ContentOrientation.VERTICAL ->  this.matchParent_WrapContent()
+            ContentOrientation.HORIZONTAL -> {
+                this.matchConstraint_size(ResourceManager.ITEM_VERTICAL_SIZE)
+
+            }
+        }
+
+    }
+
+    private fun styleVertical() {
         elevation = dp(ResourceManager.FLAT_DIALOG_ELEVATION)
-        background = drawable(ResourceManager.FLAT_DIALOG_BACKGROUND)
+        background = null
+        this.orientation = HORIZONTAL
+
+        textLayout.matchParent_WrapContent()
+        margin(
+            ResourceManager.CELL_PADDING,
+            ResourceManager.CELL_VERTICAL_PADDING,
+            ResourceManager.CELL_PADDING,
+            ResourceManager.CELL_VERTICAL_PADDING,
+        )
     }
 
-    private fun styleNormal() {
+    private fun styleHorizontal() {
         elevation = dp(ResourceManager.DIALOG_ELEVATION)
-        background = drawable(ResourceManager.DIALOG_BACKGROUND)
+        background = drawable(ResourceManager.CONTENT_HORIZONTAL_BACGROUND)
+        this.orientation = VERTICAL
+
+        textLayout.matchParent_MatchConstraint()
+        margin(
+            ResourceManager.CELL_HORIZONTAL_PADDING,
+            ResourceManager.CELL_PADDING,
+            ResourceManager.CELL_HORIZONTAL_PADDING,
+            ResourceManager.CELL_PADDING,
+        )
     }
 
 

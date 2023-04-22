@@ -25,7 +25,7 @@ class CupHeader @JvmOverloads constructor(
     private val editButton: CupButton = CupButton(context, attrs)
     private val textLayout: LinearLayout = LinearLayout(context, attrs)
 
-    private val contentLayout: LinearLayout = LinearLayout(context, attrs)
+    private val contentLayout: CupContentLayout = CupContentLayout(context, attrs)
     private val cardLayout: LinearLayout = LinearLayout(context, attrs)
 
     init {
@@ -92,14 +92,19 @@ class CupHeader @JvmOverloads constructor(
         button.matchParent_WrapContent()
         cardLayout.matchParent_WrapContent()
         contentLayout.matchParent_WrapContent()
-        contentLayout.orientation = VERTICAL
+        contentLayout.setContentOrientation(ContentOrientation.VERTICAL)
         button.setStyle(CupButtonStyle.NORMAL)
-        button.margin(ResourceManager.BUTTON_MARGIN)
+        button.margin(ResourceManager.BUTTON_MARGIN,
+            0,
+            ResourceManager.BUTTON_MARGIN,
+            ResourceManager.BUTTON_MARGIN
+        )
 
 
         setButton(null)
         setEditButton(null)
         setImage(null)
+        setDescription(null)
 
         setStyle(CupStyle.NORMAL)
     }
@@ -141,6 +146,14 @@ class CupHeader @JvmOverloads constructor(
             CupStyle.NORMAL-> styleNormal()
             CupStyle.FLAT -> styleFlat()
         }
+    }
+
+    fun setContentOrientation(orientation: ContentOrientation) {
+        contentLayout.setContentOrientation(orientation)
+    }
+
+    fun setContent(list: List<CupContentData>) {
+        contentLayout.setContent(list)
     }
 
     private fun styleFlat() {

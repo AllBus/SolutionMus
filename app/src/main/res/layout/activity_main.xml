@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/testLayout"
-        >
+        android:id="@+id/testLayout">
 
     </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

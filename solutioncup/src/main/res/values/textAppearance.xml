@@ -31,7 +31,7 @@
     </style>
 
     <style name="TextAppearanceButton">
-        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:textColor">@color/textAccent</item>
         <item name="android:textSize">15sp</item>
     </style>
 </resources>

@@ -5,6 +5,9 @@
     <dimen name="itemRadius">8dp</dimen>
     <dimen name="buttonMargin">20dp</dimen>
     <dimen name="cellPadding">20dp</dimen>
+    <dimen name="cellVerticalPadding">10dp</dimen>
+    <dimen name="cellHorizontalPadding">6dp</dimen>
+    <dimen name="itemVerticalSize">140dp</dimen>
     <dimen name="buttonPadding">12dp</dimen>
     <dimen name="descriptionPadding">4dp</dimen>
     <dimen name="subHeaderPadding">8dp</dimen>
@@ -12,4 +15,5 @@
     <dimen name="dialogElevation">24dp</dimen>
     <dimen name="flatDialogElevation">0dp</dimen>
     <dimen name="imageSize">40dp</dimen>
+    <dimen name="cellHorizontallOffest">14dp</dimen>
 </resources>
