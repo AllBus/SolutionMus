@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -19,6 +20,7 @@ class CupCell @JvmOverloads constructor(
     private val title: CupTextView = CupTextView(context, attrs)
     private val description: CupTextView = CupTextView(context, attrs)
     private val textLayout: LinearLayout = LinearLayout(context, attrs)
+    private val closeButton: CloseButton = CloseButton(context, attrs)
 
     init {
 
@@ -45,17 +47,19 @@ class CupCell @JvmOverloads constructor(
         orientation = LinearLayout.HORIZONTAL
         this.addView(image)
         this.addView(textLayout)
+        addView(closeButton)
         updatePadding(
-            px(ResourceManager.CELL_PADDING),
-            px(ResourceManager.CELL_PADDING),
-            px(ResourceManager.CELL_PADDING),
-            px(ResourceManager.CELL_PADDING),
+            px(ResourceManager.HEADER_VERTICAL_PADDING),
+            px(ResourceManager.HEADER_VERTICAL_PADDING),
+            px(ResourceManager.HEADER_VERTICAL_PADDING),
+            px(ResourceManager.HEADER_VERTICAL_PADDING),
         )
 
         setStyle(CupStyle.NORMAL)
 
         title.matchParent_WrapContent()
         description.matchParent_WrapContent()
+        textLayout.matchConstraint_WrapContent()
         image.size(ResourceManager.IMAGE_SIZE)
         description.margin(
             0,
@@ -63,7 +67,16 @@ class CupCell @JvmOverloads constructor(
             0,
             0
         )
+
+
+        hasCloseButton(false)
         setStyle(CupStyle.NORMAL)
+        image.margin(
+            ResourceManager.CELL_MARGIN,
+            ResourceManager.CELL_MARGIN,
+            0,
+            ResourceManager.CELL_MARGIN,
+        )
     }
 
     fun setTitle(text: CharSequence) {
@@ -79,7 +92,11 @@ class CupCell @JvmOverloads constructor(
     }
 
     fun hasCloseButton(enable: Boolean) {
+        closeButton.visibility = if (enable) View.VISIBLE else View.GONE
+    }
 
+    fun setCloseClickListener(listener: View.OnClickListener?){
+        closeButton.setOnClickListener(listener)
     }
 
     fun setStyle(style: CupStyle) {

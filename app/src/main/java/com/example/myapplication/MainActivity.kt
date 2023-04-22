@@ -21,6 +21,15 @@ class MainActivity : AppCompatActivity() {
             val attrs = null
 
             listOf(
+                CupCell(ctx, attrs).apply {
+
+                    setTitle("Title")
+                    setDescription("Description")
+                    setImage(getDrawable(R.drawable.tui_avatar))
+                    setStyle(CupStyle.NORMAL)
+                    hasCloseButton(true)
+                    setCloseClickListener{ Toast.makeText(ctx, "Click close", Toast.LENGTH_SHORT).show()}
+                },
                 CupHeader(ctx, attrs).apply {
                     setTitle("Header")
                     setEditButton("Edit")
