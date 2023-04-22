@@ -15,11 +15,10 @@ import com.kos.solutioncup.utils.*
 
 class CupHeader @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
-) : LinearLayout(context, attrs)
-{
+) : LinearLayout(context, attrs) {
 
     private val image: ImageView = ImageView(context, attrs)
-    private val title : TextView = CupTextView(context, attrs)
+    private val title: TextView = CupTextView(context, attrs)
     private val description: TextView = CupTextView(context, attrs)
     private val button: CupButton = CupButton(context, attrs)
     private val editButton: CupButton = CupButton(context, attrs)
@@ -39,17 +38,11 @@ class CupHeader @JvmOverloads constructor(
             title.setTextAppearance(R.style.TextAppearanceHeader)
             description.setTextAppearance(R.style.TextAppearanceSubHeader)
 
-            description.setPadding(
-                0,
-                px(ResourceManager.PADDING_SUB_HEADER),
-                0,
-                0
-            )
 
             textLayout.apply {
 
                 updatePadding(
-                   0,
+                    0,
                     0,
                     px(ResourceManager.IMAGE_PADDING),
                     0,
@@ -94,10 +87,17 @@ class CupHeader @JvmOverloads constructor(
         contentLayout.matchParent_WrapContent()
         contentLayout.setContentOrientation(ContentOrientation.VERTICAL)
         button.setStyle(CupButtonStyle.NORMAL)
-        button.margin(ResourceManager.BUTTON_MARGIN,
+        button.margin(
+            ResourceManager.BUTTON_MARGIN,
             0,
             ResourceManager.BUTTON_MARGIN,
             ResourceManager.BUTTON_MARGIN
+        )
+        description.margin(
+            0,
+            ResourceManager.PADDING_SUB_HEADER,
+            0,
+            0
         )
 
 
@@ -109,41 +109,41 @@ class CupHeader @JvmOverloads constructor(
         setStyle(CupStyle.NORMAL)
     }
 
-    fun setTitle(text: CharSequence){
+    fun setTitle(text: CharSequence) {
         title.setText(text)
     }
 
-    fun setDescription(text:CharSequence?){
+    fun setDescription(text: CharSequence?) {
         description.visibility = if (text != null) View.VISIBLE else View.GONE
         description.setText(text)
     }
 
-    fun setImage(drawable: Drawable?){
+    fun setImage(drawable: Drawable?) {
         image.visibility = if (drawable != null) View.VISIBLE else View.GONE
         image.setImageDrawable(drawable)
     }
 
-    fun setButton(text: CharSequence?){
+    fun setButton(text: CharSequence?) {
         button.visibility = if (text != null) View.VISIBLE else View.GONE
         button.text = text
     }
 
-    fun setButtonListener(listener: View.OnClickListener?){
+    fun setButtonListener(listener: View.OnClickListener?) {
         button.setOnClickListener(listener)
     }
 
-    fun setEditButton(text: CharSequence?){
+    fun setEditButton(text: CharSequence?) {
         editButton.visibility = if (text != null) View.VISIBLE else View.GONE
         editButton.text = text
     }
 
-    fun setEditButtonListener(listener: View.OnClickListener?){
-        editButton.setOnClickListener( listener)
+    fun setEditButtonListener(listener: View.OnClickListener?) {
+        editButton.setOnClickListener(listener)
     }
 
-    fun setStyle(style: CupStyle){
-        when (style){
-            CupStyle.NORMAL-> styleNormal()
+    fun setStyle(style: CupStyle) {
+        when (style) {
+            CupStyle.NORMAL -> styleNormal()
             CupStyle.FLAT -> styleFlat()
         }
     }

@@ -12,11 +12,10 @@ import com.kos.solutioncup.utils.*
 
 class CupContentItem @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
-) : LinearLayout(context, attrs)
-{
+) : LinearLayout(context, attrs) {
 
     private val image: ImageView = ImageView(context, attrs)
-    private val title : CupTextView = CupTextView(context, attrs)
+    private val title: CupTextView = CupTextView(context, attrs)
     private val description: CupTextView = CupTextView(context, attrs)
     private val textLayout: LinearLayout = LinearLayout(context, attrs)
 
@@ -27,7 +26,6 @@ class CupContentItem @JvmOverloads constructor(
         title.setTextAppearance(R.style.TextAppearanceTitle)
         description.setTextAppearance(R.style.TextAppearanceDescription)
 
-        description.setPadding(0,px(ResourceManager.PADDING_DESCRIPTION), 0 ,0)
 
         textLayout.apply {
 
@@ -55,29 +53,35 @@ class CupContentItem @JvmOverloads constructor(
         title.matchParent_WrapContent()
         description.matchParent_WrapContent()
         image.size(ResourceManager.IMAGE_SIZE)
+        description.margin(
+            0,
+            ResourceManager.PADDING_DESCRIPTION,
+            0,
+            0
+        )
 
     }
 
-    fun setTitle(text: CharSequence){
+    fun setTitle(text: CharSequence) {
         title.setText(text)
     }
 
-    fun setDescription(text:CharSequence){
+    fun setDescription(text: CharSequence) {
         description.setText(text)
     }
 
-    fun setImage(drawable: Drawable?){
+    fun setImage(drawable: Drawable?) {
         image.setImageDrawable(drawable)
     }
 
-    fun setData(data: CupContentData){
+    fun setData(data: CupContentData) {
         setTitle(data.title)
         setDescription(data.description)
         setImage(data.image)
     }
 
-    fun setOrientation(orientation: ContentOrientation){
-        when (orientation){
+    fun setOrientation(orientation: ContentOrientation) {
+        when (orientation) {
             ContentOrientation.VERTICAL -> styleVertical()
             ContentOrientation.HORIZONTAL -> styleHorizontal()
         }
@@ -85,10 +89,10 @@ class CupContentItem @JvmOverloads constructor(
         updateSize(orientation)
     }
 
-    private fun updateSize(orientation: ContentOrientation){
+    private fun updateSize(orientation: ContentOrientation) {
 
-        when (orientation){
-            ContentOrientation.VERTICAL ->  this.matchParent_WrapContent()
+        when (orientation) {
+            ContentOrientation.VERTICAL -> this.matchParent_WrapContent()
             ContentOrientation.HORIZONTAL -> {
                 this.matchConstraint_size(ResourceManager.ITEM_VERTICAL_SIZE)
 
@@ -103,12 +107,22 @@ class CupContentItem @JvmOverloads constructor(
         this.orientation = HORIZONTAL
 
         textLayout.matchParent_WrapContent()
+        setPadding(0,0,0,0)
         margin(
             ResourceManager.CELL_PADDING,
             ResourceManager.CELL_VERTICAL_PADDING,
             ResourceManager.CELL_PADDING,
             ResourceManager.CELL_VERTICAL_PADDING,
         )
+
+        textLayout.updatePadding(
+            px(ResourceManager.IMAGE_PADDING),
+            0,
+            0,
+            0,
+        )
+        title.setTextAppearance(R.style.TextAppearanceTitle)
+        description.setTextAppearance(R.style.TextAppearanceDescription)
     }
 
     private fun styleHorizontal() {
@@ -117,12 +131,27 @@ class CupContentItem @JvmOverloads constructor(
         this.orientation = VERTICAL
 
         textLayout.matchParent_MatchConstraint()
+        setPadding(px(ResourceManager.CELL_PADDING),
+            px(ResourceManager.CELL_PADDING),
+            px(ResourceManager.CELL_PADDING),
+            px(ResourceManager.CELL_PADDING)
+        )
         margin(
             ResourceManager.CELL_HORIZONTAL_PADDING,
             ResourceManager.CELL_PADDING,
             ResourceManager.CELL_HORIZONTAL_PADDING,
             ResourceManager.CELL_PADDING,
         )
+
+        textLayout.updatePadding(
+            0,
+            0,
+            0,
+            0,
+        )
+
+        title.setTextAppearance(R.style.TextAppearanceCardTitle)
+        description.setTextAppearance(R.style.TextAppearanceCardDescription)
     }
 
 

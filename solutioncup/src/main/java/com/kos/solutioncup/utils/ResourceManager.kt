@@ -13,6 +13,7 @@ object ResourceManager {
     val CELL_VERTICAL_PADDING = R.dimen.cellVerticalPadding
     val CELL_HORIZONTAL_PADDING = R.dimen.cellHorizontalPadding
     val CELL_HORIZONTAL_OFFSET = R.dimen.cellHorizontallOffest
+    val CARD_PADDING = R.dimen.cardPadding
     val ITEM_VERTICAL_SIZE = R.dimen.itemVerticalSize
     val PADDING_DESCRIPTION = R.dimen.descriptionPadding
     val PADDING_SUB_HEADER = R.dimen.subHeaderPadding
@@ -74,6 +75,7 @@ fun View.matchConstraint_size(resourceName: Int) {
 
     this.layoutParams = lp
 }
+
 fun View.matchParent_MatchConstraint() {
 
     val lp = this.layoutParams

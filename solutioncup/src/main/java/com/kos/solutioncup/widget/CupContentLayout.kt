@@ -24,26 +24,28 @@ class CupContentLayout @JvmOverloads constructor(
             return
 
         currentOrientation = orientation
-        when(orientation){
+        when (orientation) {
             ContentOrientation.HORIZONTAL -> {
                 this.orientation = HORIZONTAL
                 updatePadding(
-                    px(ResourceManager.CELL_HORIZONTAL_OFFSET) ,0,
-                    px(ResourceManager.CELL_HORIZONTAL_OFFSET), 0 )
+                    px(ResourceManager.CELL_HORIZONTAL_OFFSET), 0,
+                    px(ResourceManager.CELL_HORIZONTAL_OFFSET), 0
+                )
                 invalidateList()
             }
             ContentOrientation.VERTICAL -> {
                 this.orientation = VERTICAL
                 updatePadding(
-                    0,0,
-                  0, px(ResourceManager.CELL_VERTICAL_PADDING) )
+                    0, 0,
+                    0, px(ResourceManager.CELL_VERTICAL_PADDING)
+                )
                 invalidateList()
             }
         }
     }
 
     fun setContent(list: List<CupContentData>) {
-        if (list!= contentData) {
+        if (list != contentData) {
             contentData = list
             invalidateList()
         }
@@ -51,11 +53,11 @@ class CupContentLayout @JvmOverloads constructor(
 
     private fun invalidateList() {
         removeAllViews()
-        contentData.map{ data ->
+        contentData.map { data ->
             val item = CupContentItem(this.context, null)
             item.setData(data)
             item
-        }.forEach{ item ->
+        }.forEach { item ->
             addView(item)
             item.setOrientation(currentOrientation)
         }

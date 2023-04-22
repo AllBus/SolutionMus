@@ -22,9 +22,9 @@ class CupButton @JvmOverloads constructor(
         setStyle(CupButtonStyle.NORMAL)
     }
 
-    fun setStyle(style: CupButtonStyle){
-        when (style){
-            CupButtonStyle.NORMAL-> styleNormal()
+    fun setStyle(style: CupButtonStyle) {
+        when (style) {
+            CupButtonStyle.NORMAL -> styleNormal()
             CupButtonStyle.FLAT -> styleFlat()
         }
     }
@@ -32,14 +32,14 @@ class CupButton @JvmOverloads constructor(
     private fun styleFlat() {
         setTextAppearance(R.style.TextAppearanceFlatButton)
         background = null
-        setPadding(0,0,0,0)
+        setPadding(0, 0, 0, 0)
     }
 
     private fun styleNormal() {
         setTextAppearance(R.style.TextAppearanceButton)
         setBackgroundResource(R.drawable.button_background)
         val pd = px(ResourceManager.BUTTON_PADDING)
-        setPadding(pd, pd,pd,pd)
+        setPadding(pd, pd, pd, pd)
     }
 
 }

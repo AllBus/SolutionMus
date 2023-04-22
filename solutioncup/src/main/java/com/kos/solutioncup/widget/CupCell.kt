@@ -13,11 +13,10 @@ import com.kos.solutioncup.utils.*
 
 class CupCell @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
-) : LinearLayout(context, attrs)
-{
+) : LinearLayout(context, attrs) {
 
     private val image: ImageView = ImageView(context, attrs)
-    private val title : CupTextView = CupTextView(context, attrs)
+    private val title: CupTextView = CupTextView(context, attrs)
     private val description: CupTextView = CupTextView(context, attrs)
     private val textLayout: LinearLayout = LinearLayout(context, attrs)
 
@@ -28,7 +27,7 @@ class CupCell @JvmOverloads constructor(
         title.setTextAppearance(R.style.TextAppearanceTitle)
         description.setTextAppearance(R.style.TextAppearanceDescription)
 
-        description.setPadding(0,px(ResourceManager.PADDING_DESCRIPTION), 0 ,0)
+        description.setPadding(0, px(ResourceManager.PADDING_DESCRIPTION), 0, 0)
 
         textLayout.apply {
 
@@ -52,33 +51,40 @@ class CupCell @JvmOverloads constructor(
             px(ResourceManager.CELL_PADDING),
             px(ResourceManager.CELL_PADDING),
         )
+
         setStyle(CupStyle.NORMAL)
 
         title.matchParent_WrapContent()
         description.matchParent_WrapContent()
         image.size(ResourceManager.IMAGE_SIZE)
+        description.margin(
+            0,
+            ResourceManager.PADDING_DESCRIPTION,
+            0,
+            0
+        )
         setStyle(CupStyle.NORMAL)
     }
 
-    fun setTitle(text: CharSequence){
+    fun setTitle(text: CharSequence) {
         title.setText(text)
     }
 
-    fun setDescription(text:CharSequence){
+    fun setDescription(text: CharSequence) {
         description.setText(text)
     }
 
-    fun setImage(drawable: Drawable?){
+    fun setImage(drawable: Drawable?) {
         image.setImageDrawable(drawable)
     }
 
-    fun hasCloseButton(enable: Boolean){
+    fun hasCloseButton(enable: Boolean) {
 
     }
 
-    fun setStyle(style: CupStyle){
-        when (style){
-            CupStyle.NORMAL-> styleNormal()
+    fun setStyle(style: CupStyle) {
+        when (style) {
+            CupStyle.NORMAL -> styleNormal()
             CupStyle.FLAT -> styleFlat()
         }
     }
