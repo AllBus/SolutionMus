@@ -121,6 +121,8 @@ class CupContentItem @JvmOverloads constructor(
             0,
             0,
         )
+        textLayout.gravity = Gravity.CENTER_VERTICAL
+
         title.setTextAppearance(R.style.TextAppearanceTitle)
         description.setTextAppearance(R.style.TextAppearanceDescription)
     }
@@ -149,6 +151,8 @@ class CupContentItem @JvmOverloads constructor(
             0,
             0,
         )
+
+        textLayout.gravity = Gravity.BOTTOM
 
         title.setTextAppearance(R.style.TextAppearanceCardTitle)
         description.setTextAppearance(R.style.TextAppearanceCardDescription)
