@@ -14,6 +14,7 @@ object ResourceManager {
     val CELL_HORIZONTAL_PADDING = R.dimen.cellHorizontalPadding
     val CELL_HORIZONTAL_OFFSET = R.dimen.cellHorizontallOffest
     val CARD_PADDING = R.dimen.cardPadding
+    val HEADER_VERTICAL_PADDING = R.dimen.headerVerticalPadding
     val ITEM_VERTICAL_SIZE = R.dimen.itemVerticalSize
     val PADDING_DESCRIPTION = R.dimen.descriptionPadding
     val PADDING_SUB_HEADER = R.dimen.subHeaderPadding

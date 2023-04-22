@@ -5,6 +5,7 @@
     <dimen name="itemRadius">8dp</dimen>
     <dimen name="buttonMargin">20dp</dimen>
     <dimen name="cellPadding">20dp</dimen>
+    <dimen name="headerVerticalPadding">16dp</dimen>
     <dimen name="cardPadding">12dp</dimen>
     <dimen name="cellVerticalPadding">10dp</dimen>
     <dimen name="cellHorizontalPadding">6dp</dimen>

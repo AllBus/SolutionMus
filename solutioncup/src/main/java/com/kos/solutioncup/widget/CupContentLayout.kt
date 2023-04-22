@@ -2,6 +2,7 @@ package com.kos.solutioncup.widget
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.LinearLayout
 import androidx.core.view.updatePadding
 import com.kos.solutioncup.utils.ResourceManager
@@ -53,6 +54,11 @@ class CupContentLayout @JvmOverloads constructor(
 
     private fun invalidateList() {
         removeAllViews()
+        if (contentData.isEmpty()){
+            visibility = View.GONE
+        }else{
+            visibility = View.VISIBLE
+        }
         contentData.map { data ->
             val item = CupContentItem(this.context, null)
             item.setData(data)

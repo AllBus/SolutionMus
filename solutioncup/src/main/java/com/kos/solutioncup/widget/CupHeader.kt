@@ -61,9 +61,9 @@ class CupHeader @JvmOverloads constructor(
 
             updatePadding(
                 px(ResourceManager.CELL_PADDING),
+                px(ResourceManager.HEADER_VERTICAL_PADDING),
                 px(ResourceManager.CELL_PADDING),
-                px(ResourceManager.CELL_PADDING),
-                px(ResourceManager.CELL_PADDING),
+                px(ResourceManager.HEADER_VERTICAL_PADDING),
             )
 
 
@@ -72,7 +72,6 @@ class CupHeader @JvmOverloads constructor(
             description.matchParent_WrapContent()
             image.size(ResourceManager.IMAGE_SIZE)
             editButton.wrapContent_WrapContent()
-
             editButton.setStyle(CupButtonStyle.FLAT)
         }
 
@@ -105,6 +104,7 @@ class CupHeader @JvmOverloads constructor(
         setEditButton(null)
         setImage(null)
         setDescription(null)
+        setContent(emptyList())
 
         setStyle(CupStyle.NORMAL)
     }
