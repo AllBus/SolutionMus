@@ -55,6 +55,15 @@ fun View.matchParent_WrapContent() {
     this.layoutParams = lp
 }
 
+fun View.wrapContent_MatchParent() {
+
+    val lp = this.layoutParams
+    lp.width = LayoutParams.WRAP_CONTENT
+    lp.height = LayoutParams.MATCH_PARENT
+    this.layoutParams = lp
+}
+
+
 fun View.matchConstraint_WrapContent() {
 
     val lp = this.layoutParams
