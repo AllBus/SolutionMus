@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="buttonRadius"> 12dp</dimen>
+    <dimen name="cardRadius">24dp</dimen>
+    <dimen name="itemRadius">8dp</dimen>
+    <dimen name="buttonMargin">20dp</dimen>
+    <dimen name="cellPadding">20dp</dimen>
+    <dimen name="buttonPadding">12dp</dimen>
+    <dimen name="descriptionPadding">4dp</dimen>
+    <dimen name="subHeaderPadding">8dp</dimen>
+    <dimen name="imagePadding">16dp</dimen>
+    <dimen name="dialogElevation">24dp</dimen>
+    <dimen name="flatDialogElevation">0dp</dimen>
+    <dimen name="imageSize">40dp</dimen>
+</resources>

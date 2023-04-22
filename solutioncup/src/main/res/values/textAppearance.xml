@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextView">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    
+    <style name="TextAppearanceHeader" >
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearanceSubHeader" >
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearanceTitle" >
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextAppearanceDescription" >
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextAppearanceFlatButton" >
+        <item name="android:textColor">@color/textAccent</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextAppearanceButton">
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>
